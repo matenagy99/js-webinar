@@ -11,7 +11,7 @@
  * @returns {number} grade or 0 if any arguments are not proper
  */
 function grade(score) {
-    let gradeOfStudent;
+    let gradeOfStudent = 5;
     /*
      * Your task is to calculate the grade of the student
      * based on his/her score which can be found in the
@@ -22,7 +22,19 @@ function grade(score) {
      */
     // PLACE YOUR CODE BETWEEN THIS...
 
+    if (score < 0 || score > 100) {
+        return 0;
+    }
+
+    if (score < 60){
+        return 1
+    } else {
+        gradeOfStudent =  gradeOfStudent - (Math.ceil(((100 - score) / 10)) - 1);
+    }
+
     // ...AND THIS COMMENT LINE!
     return gradeOfStudent;
+
 }
+
 module.exports = grade;

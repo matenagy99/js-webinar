@@ -25,11 +25,12 @@ function euclidean(a, b) {
                 b -= a;
             }
         }
+        gcd = a;
     } else {
         gcd = 0;
     }
 
-    gcd = a;
+    
 
     // ...AND THIS COMMENT LINE!
     return gcd;

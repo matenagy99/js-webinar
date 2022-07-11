@@ -26,6 +26,10 @@ function grade(score) {
         return 0;
     }
 
+    if (score == 100) {
+        return 5;
+    }
+
     if (score < 60){
         return 1
     } else {

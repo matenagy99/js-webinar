@@ -31,6 +31,8 @@ function fibonacci(n) {
                 }
             */
         }
+    }else {
+        return 0;
     }
 
     // ...AND THIS COMMENT LINE!

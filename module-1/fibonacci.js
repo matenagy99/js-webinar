@@ -16,6 +16,23 @@ function fibonacci(n) {
      */
     // PLACE YOUR CODE BETWEEN THIS...
 
+    if (n >= 0){
+        if (n < 2) {
+            nThFibonacci = n;
+        }else {
+            nThFibonacci = fibonacci(n - 2) + fibonacci(n - 1);
+
+            /*let f0 = 0;
+            let f1 = 1;
+            for (let i = 0; i < n; i++){
+                    fib = f0 + f1;
+                    f0 = f1;
+                    f1 = fib;
+                }
+            */
+        }
+    }
+
     // ...AND THIS COMMENT LINE!
     return nThFibonacci;
 }

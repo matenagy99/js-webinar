@@ -7,3 +7,17 @@
  * @param {string} key the name of the property to delete
  * @returns {object} the new object without the given property
  */
+
+function del(o, key) {
+
+    if (typeof o !== "object") {
+        throw new Error("The given parameter is not an object");
+    }
+
+    let new_o = {};
+    Object.assign(new_o, o);
+
+    return delete new_o[key];
+}
+
+module.exports = del;

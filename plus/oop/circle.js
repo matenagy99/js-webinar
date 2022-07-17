@@ -6,3 +6,25 @@
  * @function getArea return the area of the circle
  * @function getPerimeter return the perimeter of the circle
  */
+
+"use strict";
+
+function Circle(r){
+
+    this.r = r
+
+    if(this.r < 0) {
+        throw new Error("Radius cannot be negative");
+    }
+
+}
+
+Circle.prototype.getPerimeter = function () {
+    return 2 * this.r * Math.PI;
+}
+
+Circle.prototype.getArea = function() {
+    return Math.PI * Math.pow(this.r, 2);
+}
+
+module.exports = Circle;

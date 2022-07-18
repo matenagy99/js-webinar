@@ -18,7 +18,5 @@ module.exports = async function sleep(sec) {
         sec = 1;
     }
 
-    time = sec * 1000;
-
-    return new Promise(resolve => setTimeout(resolve, time));
+    return new Promise(resolve => setTimeout(resolve, sec * 1000));
 }

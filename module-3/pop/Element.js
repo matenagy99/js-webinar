@@ -21,7 +21,6 @@
 "use strict";
 
 const { element } = require('../test/mock/ElementFinder');
-const ElementFinder = require('../test/mock/ElementFinder');
 
 class Element {
   constructor(name, locator) {

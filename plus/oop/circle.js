@@ -11,10 +11,10 @@
 
 function Circle(r){
 
-    if(this.r < 0) {
+    if(r < 0) {
         throw new Error("Radius cannot be negative");
     }
-    
+
     this.r = r
 }
 

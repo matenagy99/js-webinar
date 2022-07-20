@@ -12,13 +12,10 @@ function reverse(o) {
         throw new Error("The parameter is not an object");
     }
 
-    const keys = Object.keys(o);
-    const values = Object.values(o);
-
     const new_o = {};
 
-    for (let i = 0; i < keys.length; i++) {
-        new_o[values[i]] = keys[i];
+    for (const [key, value] of Object.entries(o)) {
+        new_o[value] = key;
     }
 
     return new_o;

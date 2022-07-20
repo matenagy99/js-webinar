@@ -11,12 +11,11 @@
 
 function Circle(r){
 
-    this.r = r
-
     if(this.r < 0) {
         throw new Error("Radius cannot be negative");
     }
-
+    
+    this.r = r
 }
 
 Circle.prototype.getPerimeter = function () {

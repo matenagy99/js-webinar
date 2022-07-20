@@ -18,7 +18,6 @@
 "use strict";
 
 const Element = require("./Element");
-const Browser = require("../test/mock/Browser");
 
 class Layout extends Element {
     constructor(name, url, locator){

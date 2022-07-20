@@ -17,7 +17,9 @@ function del(o, key) {
     let new_o = {};
     Object.assign(new_o, o);
 
-    return delete new_o[key];
+    delete new_o[key];
+
+    return new_o;
 }
 
 module.exports = del;

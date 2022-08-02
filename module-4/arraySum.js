@@ -8,36 +8,25 @@
  * @returns {number} summary of all integers or 0 in other cases
  */
 
-module.exports = function arraySum(arr, sum = 0) {
-    
+module.exports = function arraySum(arr, ints = []) {
+
     if (!(arr instanceof Array) || arr.length === 0) {
         return 0;
     }
 
-    let sumItems = sum;
+    let integers = ints;
 
-    for (const item of arr) {
-        if (typeof item === "number") {
-            sumItems += item;
+    for (let i = 0; i < arr.length; i++) {
+
+        if (typeof arr[i] === "number") {
+            integers.push(arr[i])
         }
 
-        if (item instanceof Array) {
-            arraySum(item, sumItems);
-        }
+        if (arr[i] instanceof Array) {
+            arraySum(arr[i], integers);  
+        } 
+        
     }
 
-    /*
-    arr.forEach((element) => {
-        
-        if (typeof element === "number") {
-            sumItems += element;
-        }
-        
-        if (element instanceof Array) {
-            arraySum(element, sumItems);
-        }
-
-    });*/
-
-    return sumItems;
+    return integers.reduce((sum, item) => sum + item); 
 }

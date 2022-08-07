@@ -14,7 +14,7 @@ module.exports = function toCamelCase(string) {
 
     let str = "";
     
-    let subStrs = string.trim().split(/\s+/);
+    let subStrs = string.trim().split(/[^A-Za-z0-9]/);
     str += subStrs[0].toLowerCase();
 
     for(let idx = 1; idx < subStrs.length; idx++){

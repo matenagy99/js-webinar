@@ -14,15 +14,20 @@
 
 module.exports = function arrayEqual(arr1, arr2) {
 
+    arr1 = arr1.flat(Infinity);
+    arr2 = arr2.flat(Infinity);
+
     if (arr1.length !== arr2.length) {
         console.warn(`Different lengths: ${arr1.length} !== ${arr2.length}`);
+        return false;
     } else {
         for (let i = 0; i < arr1.length; i++) {
             if (arr1[i] !== arr2[i]) {
-                console.warn(`Different items: ${arr1[i]} !== ${arr2[i]}`)
+                console.warn(`Different items: ${arr1[i]} !== ${arr2[i]}`);
+                return false;
             } 
         }
     }
     
-    return JSON.stringify(arr1) === JSON.stringify(arr2);
+    return true;
 }

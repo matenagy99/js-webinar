@@ -1,5 +1,5 @@
 /**
- * It determines whether the given array is sorted in
+ * It determines whether the given newArray is sorted in
  * alphabetically ascending order.
  * 
  * It ignores
@@ -7,30 +7,31 @@
  *  - given special characters (nothing by default)
  *  - whitespaces
  * 
- * @param {string[]} items the subject items
- * @param {string} ignore characters to ignore
- * @returns {boolean} true if the array is properly sorted,
+ * @param {newArr[]} items the subject items
+ * @param {newArr} ignore characters to ignore
+ * @returns {boolean} true if the newArray is properly sorted,
  *                    false otherwise
  */
 
-module.exports = function arraySorted(arr, ignore) {
+module.exports = function newArraySorted(arr, ignore) {
     
+    let formatted = arr.map((item) => {
+
+        item = item.toString();
+        item = item.split(/[" "\s]/).join("");
+        
+        if (item.indexOf(ignore) !== -1) {
+            item = item.replace(ignore, "");
+        }
+
+        return item;
+    });
+
     let isSorted = true;
 
-    for (let idx = 0; idx < arr.length - 1; idx++) {
+    for (let idx = 0; idx < formatted.length - 1; idx++) {
 
-        arr[idx] = arr[idx].toString().split(" ").join("").replace(/\s+/, "");
-        arr[idx + 1] = arr[idx + 1].toString().split(" ").join("").replace(/\s+/, "");
-
-        if (arr[idx].indexOf(ignore) !== -1) {
-            arr[idx] = arr[idx].replace(ignore, "");
-        }
-
-        if (arr[idx + 1].indexOf(ignore) !== -1) {
-            arr[idx + 1] = arr[idx + 1].replace(ignore, "");
-        }
-
-        if (arr[idx].toLowerCase() > arr[idx + 1].toLowerCase()) {
+        if (formatted[idx].toLowerCase() > formatted[idx + 1].toLowerCase()) {
             isSorted =  false;
         }
     }

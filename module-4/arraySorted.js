@@ -7,34 +7,36 @@
  *  - given special characters (nothing by default)
  *  - whitespaces
  * 
- * @param {newArr[]} items the subject items
- * @param {newArr} ignore characters to ignore
+ * @param {arr} items the subject items
+ * @param {string} ignore characters to ignore
  * @returns {boolean} true if the newArray is properly sorted,
  *                    false otherwise
  */
 
-module.exports = function newArraySorted(arr, ignore) {
-    
+module.exports = function arraySorted(arr, ignore) {
+
     let formatted = arr.map((item) => {
 
-        item = item.toString();
-        item = item.split(/[" "\s]/).join("");
-        
-        if (item.indexOf(ignore) !== -1) {
-            item = item.replace(ignore, "");
+        item = item.toString().toLowerCase();
+        item = item.replace(/\s/g, "");
+
+        if (ignore && ignore.length > 1) {
+            for (let char = 0; char < ignore.length; char++) {
+                item = item.replaceAll(ignore[char], "");
+            }
+        } else {
+            item = item.replaceAll(ignore, "");
         }
 
         return item;
     });
 
-    let isSorted = true;
-
     for (let idx = 0; idx < formatted.length - 1; idx++) {
 
-        if (formatted[idx].toLowerCase() > formatted[idx + 1].toLowerCase()) {
-            isSorted =  false;
+        if (formatted[idx] > formatted[idx + 1]) {
+            return false;
         }
     }
 
-    return isSorted;
+    return true;
 }

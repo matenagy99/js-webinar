@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+    
+    tools {nodejs "node"}
+    
+    stages{
+        
+        stage('Cloning Git') {
+          steps {
+            git 'https://github.com/matenagy99/js-webinar'
+          }
+        }
+        
+        stage("Install dependencies") {
+            steps{
+                bat "npm install"
+            }
+        }
+        
+        stage("Module1 tests") {
+            steps {
+                bat "npm run test:module-1"
+            }
+        } 
+        
+        stage("Module2 tests") {
+            steps {
+                bat "npm run test:module-2"
+            }
+        }
+        
+        stage("Module3 tests") {
+            steps {
+                bat "npm run test:module-3"
+            }
+        }
+        
+        stage("Module4 tests") {
+            steps {
+                bat "npm run test:module-4"
+            }
+        }
+        
+        stage("Module5 tests") {
+            steps {
+                bat "npm run test:module-5"
+            }
+        }
+    }
+}
